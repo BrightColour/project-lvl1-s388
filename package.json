@@ -1,6 +1,6 @@
 {
   "name": "bright-brain-games",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Brain Games",
   "bin": {
     "brain-games": "dist/bin/brain-games.js"
