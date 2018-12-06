@@ -1,3 +1,6 @@
+env:
+  node: true
+
 parser: babel-eslint
 
 extends:
@@ -5,4 +8,3 @@ extends:
 
 rules:
   no-console: 0
-  import/no-extraneous-dependencies: true
