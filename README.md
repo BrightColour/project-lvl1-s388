@@ -8,3 +8,6 @@
 <br>
 <h3>Calc game</h3>
 <a href="https://asciinema.org/a/cKF9ogB64RUsBfuxxDsegTbya" target="_blank"><img src="https://asciinema.org/a/cKF9ogB64RUsBfuxxDsegTbya.svg" /></a>
+<br>
+<h3>Gcd game</h3>
+<a href="https://asciinema.org/a/0pUlSgWaqAyKeGD9yq47ShAxc" target="_blank"><img src="https://asciinema.org/a/0pUlSgWaqAyKeGD9yq47ShAxc.svg" /></a>
