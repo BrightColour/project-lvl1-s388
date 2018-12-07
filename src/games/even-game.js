@@ -5,7 +5,7 @@ const answers = {
   yes: 'yes',
 };
 
-const startMessage = `Welcome to the Brain Games!\nAnswer "${answers.yes}" if number even otherwise answer "${answers.no}".`;
+const startMessage = `Answer "${answers.yes}" if number even otherwise answer "${answers.no}".`;
 
 const getQuestionAndCorrectAnswer = () => {
   const randomNumber = Math.floor(Math.random() * 100);
