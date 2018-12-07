@@ -1,9 +1,9 @@
 {
   "name": "bright-brain-games",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Brain Games",
   "bin": {
-    "brain-games": "dist/bin/brain-games.js"
+    "brain-even": "dist/bin/brain-even.js"
   },
   "scripts": {
     "build": "NODE_ENV=production babel src --out-dir dist --source-maps inline",

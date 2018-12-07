@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 import gameIntarface from '..';
 
 const answers = {
@@ -19,6 +17,4 @@ const getQuestionAndCorrectAnswer = () => {
 
 const parseAnswerFormat = answer => Object.keys(answers).includes(answer);
 
-const evalGame = gameIntarface(getQuestionAndCorrectAnswer, parseAnswerFormat, startMessage);
-
-evalGame();
+export default gameIntarface({ getQuestionAndCorrectAnswer, parseAnswerFormat, startMessage });
