@@ -1,20 +1,18 @@
 import gameIntarface from '..';
 
-const answers = {
-  no: 'no',
-  yes: 'yes',
-};
+const description = 'Answer "yes" if number even otherwise answer "no".';
 
-const startMessage = `Answer "${answers.yes}" if number even otherwise answer "${answers.no}".`;
+const isEven = number => number % 2 === 0;
 
 const getQuestionAndCorrectAnswer = () => {
-  const randomNumber = Math.floor(Math.random() * 100);
+  const question = Math.floor(Math.random() * 100);
+  const correctAnswer = isEven(question) ? 'yes' : 'no';
   return {
-    question: randomNumber,
-    correctAnswer: (randomNumber % 2 === 0) ? answers.yes : answers.no,
+    question,
+    correctAnswer,
   };
 };
 
-const parseAnswerFormat = answer => Object.keys(answers).includes(answer);
+const parseAnswerFormat = answer => ['yes', 'no'].includes(answer);
 
-export default gameIntarface({ getQuestionAndCorrectAnswer, parseAnswerFormat, startMessage });
+export default gameIntarface({ getQuestionAndCorrectAnswer, parseAnswerFormat, description });
