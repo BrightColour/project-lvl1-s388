@@ -1,4 +1,6 @@
 import gameIntarface from '..';
+import getRandomNumber from '../helpers/getRandomNumber';
+import isNumberAnswer from '../helpers/isNumberAnswer';
 
 const description = 'Find the greatest common divisor of given numbers.';
 
@@ -11,8 +13,8 @@ const findGcd = (n, m) => {
 };
 
 const getQuestionAndCorrectAnswer = () => {
-  const firstNumber = Math.floor(Math.random() * 100);
-  const secondNumber = Math.floor(Math.random() * 100);
+  const firstNumber = getRandomNumber();
+  const secondNumber = getRandomNumber();
   let correctAnswer = findGcd(firstNumber, secondNumber);
   correctAnswer += '';
   const question = `${firstNumber} ${secondNumber}`;
@@ -22,6 +24,6 @@ const getQuestionAndCorrectAnswer = () => {
   };
 };
 
-const parseAnswerFormat = answer => Number.parseInt(answer, 10);
+const parseAnswerFormat = isNumberAnswer;
 
 export default gameIntarface({ getQuestionAndCorrectAnswer, parseAnswerFormat, description });

@@ -1,6 +1,6 @@
 {
   "name": "bright-brain-games",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "description": "Brain Games",
   "bin": {
     "brain-even": "dist/bin/brain-even.js",

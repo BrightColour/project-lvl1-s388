@@ -1,11 +1,12 @@
 import gameIntarface from '..';
+import getRandomNumber from '../helpers/getRandomNumber';
 
 const description = 'Answer "yes" if number even otherwise answer "no".';
 
 const isEven = number => number % 2 === 0;
 
 const getQuestionAndCorrectAnswer = () => {
-  const question = Math.floor(Math.random() * 100);
+  const question = getRandomNumber();
   const correctAnswer = isEven(question) ? 'yes' : 'no';
   return {
     question,

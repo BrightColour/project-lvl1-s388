@@ -1,13 +1,15 @@
 import gameIntarface from '..';
+import getRandomNumber from '../helpers/getRandomNumber';
+import isNumberAnswer from '../helpers/isNumberAnswer';
 
 const description = 'What is the result of the expression?';
 
 const getQuestionAndCorrectAnswer = () => {
   const operations = ['-', '+', '*'];
-  const firstNumber = Math.floor(Math.random() * 100);
-  const secondNumber = Math.floor(Math.random() * 100);
+  const firstNumber = getRandomNumber();
+  const secondNumber = getRandomNumber();
   let correctAnswer = 0;
-  const operationId = Math.floor(Math.random() * 10) % 3;
+  const operationId = getRandomNumber() % 3;
   const operation = operations[operationId];
   if (operationId === 0) {
     correctAnswer = firstNumber - secondNumber;
@@ -26,6 +28,6 @@ const getQuestionAndCorrectAnswer = () => {
   };
 };
 
-const parseAnswerFormat = answer => Number.parseInt(answer, 10);
+const parseAnswerFormat = isNumberAnswer;
 
 export default gameIntarface({ getQuestionAndCorrectAnswer, parseAnswerFormat, description });
