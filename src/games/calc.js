@@ -31,4 +31,4 @@ const getQuestionAndCorrectAnswer = () => {
   };
 };
 
-export default gameIntarface({ getQuestionAndCorrectAnswer, description });
+export default () => gameIntarface({ getQuestionAndCorrectAnswer, description });
