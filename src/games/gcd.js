@@ -1,6 +1,5 @@
 import gameIntarface from '..';
-import getRandomNumber from '../helpers/getRandomNumber';
-import isNumberAnswer from '../helpers/isNumberAnswer';
+import getRandomNumber from '../utils';
 
 const description = 'Find the greatest common divisor of given numbers.';
 
@@ -24,6 +23,4 @@ const getQuestionAndCorrectAnswer = () => {
   };
 };
 
-const parseAnswerFormat = isNumberAnswer;
-
-export default gameIntarface({ getQuestionAndCorrectAnswer, parseAnswerFormat, description });
+export default gameIntarface({ getQuestionAndCorrectAnswer, description });

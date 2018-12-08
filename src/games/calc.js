@@ -1,6 +1,5 @@
 import gameIntarface from '..';
-import getRandomNumber from '../helpers/getRandomNumber';
-import isNumberAnswer from '../helpers/isNumberAnswer';
+import getRandomNumber from '../utils';
 
 const description = 'What is the result of the expression?';
 
@@ -11,14 +10,18 @@ const getQuestionAndCorrectAnswer = () => {
   let correctAnswer = 0;
   const operationId = getRandomNumber() % 3;
   const operation = operations[operationId];
-  if (operationId === 0) {
-    correctAnswer = firstNumber - secondNumber;
-  }
-  if (operationId === 1) {
-    correctAnswer = firstNumber + secondNumber;
-  }
-  if (operationId === 2) {
-    correctAnswer = firstNumber * secondNumber;
+  switch (operation) {
+    case '-':
+      correctAnswer = firstNumber - secondNumber;
+      break;
+    case '+':
+      correctAnswer = firstNumber + secondNumber;
+      break;
+    case '*':
+      correctAnswer = firstNumber * secondNumber;
+      break;
+    default:
+      throw new Error(`Unknown operation ${operation}`);
   }
   const question = `${firstNumber} ${operation} ${secondNumber}`;
   correctAnswer += '';
@@ -28,6 +31,4 @@ const getQuestionAndCorrectAnswer = () => {
   };
 };
 
-const parseAnswerFormat = isNumberAnswer;
-
-export default gameIntarface({ getQuestionAndCorrectAnswer, parseAnswerFormat, description });
+export default gameIntarface({ getQuestionAndCorrectAnswer, description });

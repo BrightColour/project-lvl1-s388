@@ -1,5 +1,5 @@
 import gameIntarface from '..';
-import getRandomNumber from '../helpers/getRandomNumber';
+import getRandomNumber from '../utils';
 
 const description = 'Answer "yes" if number even otherwise answer "no".';
 
@@ -14,6 +14,4 @@ const getQuestionAndCorrectAnswer = () => {
   };
 };
 
-const parseAnswerFormat = answer => ['yes', 'no'].includes(answer);
-
-export default gameIntarface({ getQuestionAndCorrectAnswer, parseAnswerFormat, description });
+export default gameIntarface({ getQuestionAndCorrectAnswer, description });

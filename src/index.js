@@ -1,6 +1,6 @@
 import readlineSync from 'readline-sync';
 
-export default ({ getQuestionAndCorrectAnswer, parseAnswerFormat, description }) => {
+export default ({ getQuestionAndCorrectAnswer, description }) => {
   console.log('Welcome to the Brain Games!');
   console.log(description);
   const name = readlineSync.question('May I have your name? ');
@@ -8,22 +8,14 @@ export default ({ getQuestionAndCorrectAnswer, parseAnswerFormat, description })
 
   const getAnswer = () => {
     const { question, correctAnswer } = getQuestionAndCorrectAnswer();
-    let isAnswerInCorrectFormat = false;
-    let userAnswer = '';
-    while (!isAnswerInCorrectFormat) {
-      userAnswer = readlineSync.question(`Question: ${question}\nYour answer: `);
-      isAnswerInCorrectFormat = parseAnswerFormat(userAnswer);
-      if (!isAnswerInCorrectFormat) {
-        console.log('I don\'t understand you. Try again!');
-      }
-    }
+    const userAnswer = readlineSync.question(`Question: ${question}\nYour answer: `);
     return {
       correctAnswer,
       userAnswer,
     };
   };
 
-  return () => {
+  const playGame = () => {
     let isPlaingGame = true;
     let tries = 0;
     while (isPlaingGame) {
@@ -43,4 +35,5 @@ export default ({ getQuestionAndCorrectAnswer, parseAnswerFormat, description })
       }
     }
   };
+  playGame();
 };
