@@ -14,8 +14,7 @@ const findGcd = (n, m) => {
 const getQuestionAndCorrectAnswer = () => {
   const firstNumber = getRandomNumber();
   const secondNumber = getRandomNumber();
-  let correctAnswer = findGcd(firstNumber, secondNumber);
-  correctAnswer += '';
+  const correctAnswer = String(findGcd(firstNumber, secondNumber));
   const question = `${firstNumber} ${secondNumber}`;
   return {
     question,
@@ -23,4 +22,4 @@ const getQuestionAndCorrectAnswer = () => {
   };
 };
 
-export default () => gameIntarface({ getQuestionAndCorrectAnswer, description });
+export default () => gameIntarface(getQuestionAndCorrectAnswer, description);

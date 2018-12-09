@@ -2,13 +2,13 @@ import gameIntarface from '..';
 import getRandomNumber from '../utils';
 
 const description = 'What is the result of the expression?';
+const operations = ['-', '+', '*'];
 
 const getQuestionAndCorrectAnswer = () => {
-  const operations = ['-', '+', '*'];
   const firstNumber = getRandomNumber();
   const secondNumber = getRandomNumber();
-  let correctAnswer = 0;
-  const operationId = getRandomNumber() % 3;
+  let correctAnswer;
+  const operationId = getRandomNumber() % operations.length;
   const operation = operations[operationId];
   switch (operation) {
     case '-':
@@ -24,11 +24,11 @@ const getQuestionAndCorrectAnswer = () => {
       throw new Error(`Unknown operation ${operation}`);
   }
   const question = `${firstNumber} ${operation} ${secondNumber}`;
-  correctAnswer += '';
+  correctAnswer = String(correctAnswer);
   return {
     question,
     correctAnswer,
   };
 };
 
-export default () => gameIntarface({ getQuestionAndCorrectAnswer, description });
+export default () => gameIntarface(getQuestionAndCorrectAnswer, description);

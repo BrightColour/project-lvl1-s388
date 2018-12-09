@@ -3,27 +3,26 @@ import getRandomNumber from '../utils';
 
 const description = 'What number is missing in the progression?';
 
-const getProgression = () => {
-  const step = getRandomNumber(1, 10);
-  const firstNumber = getRandomNumber();
-  const progression = [firstNumber];
-  for (let i = 0; i < 10; i += 1) {
-    progression.push(progression[progression.length - 1] + step);
+const getProgression = (progressionLength, step, firstElememt) => {
+  const progression = [];
+  for (let i = 0; i < progressionLength; i += 1) {
+    progression.push(firstElememt + step * i);
   }
   return progression;
 };
 
 const getQuestionAndCorrectAnswer = () => {
-  const progression = getProgression();
-  const progressionElemId = getRandomNumber(0, 9);
-  let correctAnswer = progression[progressionElemId];
-  correctAnswer += '';
-  progression[progressionElemId] = '...';
-  const question = progression.reduce((acc, elem) => `${acc} ${elem}`, '');
+  const progressionStep = getRandomNumber(1, 10);
+  const progressionFirstElement = getRandomNumber();
+  const progression = getProgression(10, progressionStep, progressionFirstElement);
+  const hiddenElementPosition = getRandomNumber(0, progression.length - 1);
+  const correctAnswer = String(progression[hiddenElementPosition]);
+  progression[hiddenElementPosition] = '...';
+  const question = progression.join(' ');
   return {
     correctAnswer,
     question,
   };
 };
 
-export default () => gameIntarface({ getQuestionAndCorrectAnswer, description });
+export default () => gameIntarface(getQuestionAndCorrectAnswer, description);

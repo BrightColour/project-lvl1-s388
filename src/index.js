@@ -1,6 +1,6 @@
 import readlineSync from 'readline-sync';
 
-export default ({ getQuestionAndCorrectAnswer, description }) => {
+export default (getQuestionAndCorrectAnswer, description) => {
   const getAnswer = () => {
     const { question, correctAnswer } = getQuestionAndCorrectAnswer();
     const userAnswer = readlineSync.question(`Question: ${question}\nYour answer: `);
@@ -14,22 +14,17 @@ export default ({ getQuestionAndCorrectAnswer, description }) => {
   const name = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${name}!`);
 
-  let isPlaingGame = true;
-  let tries = 0;
-  while (isPlaingGame) {
+  for (let countOfAnswers = 1; countOfAnswers <= 3; countOfAnswers += 1) {
     const { correctAnswer, userAnswer } = getAnswer();
     const userAnswerIsCorrect = correctAnswer === userAnswer;
-    if (userAnswerIsCorrect) {
-      tries += 1;
-      console.log('Correct!');
-    } else {
-      isPlaingGame = false;
+    if (!userAnswerIsCorrect) {
       console.log(`${userAnswer} is wrong answer ;(. Correct answer was "${correctAnswer}".\n`
-                    + `Let's try again, ${name}!`);
+                + `Let's try again, ${name}!`);
+      return;
     }
-    if (tries >= 3) {
+    console.log('Correct!');
+    if (countOfAnswers >= 3) {
       console.log(`Congratulations, ${name}!`);
-      isPlaingGame = false;
     }
   }
 };
