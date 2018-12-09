@@ -3,10 +3,10 @@ import getRandomNumber from '../utils';
 
 const description = 'What number is missing in the progression?';
 
-const getProgression = (progressionLength, step, firstElememt) => {
+const getProgression = (progressionLength, step, firstElement) => {
   const progression = [];
   for (let i = 0; i < progressionLength; i += 1) {
-    progression.push(firstElememt + step * i);
+    progression.push(firstElement + step * i);
   }
   return progression;
 };
